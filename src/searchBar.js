@@ -9,13 +9,17 @@ const searchTerms = ['Android', 'Art', 'Artificial Intelligence', 'Astronomy', '
 
 class SearchBooks extends React.Component {
     state = {
-        query: 'classic',
-        bookList: []
+        query: '',
+        bookList: [],
     }
 
     componentWillUpdate() {
-        BooksAPI.search(this.state.query).then((bookList) => {
-            this.setState({bookList})
+        searchTerms.map ((term) => {
+            if (this.state.query === term){
+                BooksAPI.search(this.state.query).then((bookList) => {
+                    this.setState({bookList})
+                })            
+            }
         })
     }
 
@@ -23,7 +27,6 @@ class SearchBooks extends React.Component {
         // not based off previous state so can just pass an object
         this.setState({query: query.trim()})
     }
-
 
     render () {
         return (
@@ -40,7 +43,6 @@ class SearchBooks extends React.Component {
                     </div>
                 </div>
                 <div className="search-books-results">
-                    {JSON.stringify(this.state.query)}
                     <ol className="books-grid">
                         {this.state.query !== '' && (
                             this.state.bookList.map ((book) => {
