@@ -6,7 +6,6 @@ import BookShelf from './bookShelf';
 import SearchBooks from './searchBar'
 import * as BooksAPI from './BooksAPI';
 
-// TODO: delete this once done
 console.log(BooksAPI);
 
 class BooksApp extends React.Component {
@@ -37,7 +36,9 @@ class BooksApp extends React.Component {
                         </div>
                     </div>
                 )}/>
-                <Route path="/search" component={SearchBooks}/>
+                <Route path="/search" render={() => (
+                    <SearchBooks bookList={this.state.bookList}/>
+                )}/>
             </div>
         )
     }

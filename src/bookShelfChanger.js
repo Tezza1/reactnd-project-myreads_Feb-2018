@@ -1,9 +1,5 @@
 import React from 'react';
 
-// TODO: use component in import
-// TODO: update to a function
-// TODO: when a status changes, the book will move to different shelf
-
 const bookStatus = [
     { status: "none-disable", title: "Move to...", key: 1 },
     { status: "currentlyReading", title: "Currently Reading", key: 2 },
