@@ -7,24 +7,27 @@ import BookShelfChanger from './bookShelfChanger'
 
 const searchTerms = ['Android', 'Art', 'Artificial Intelligence', 'Astronomy', 'Austen', 'Baseball', 'Basketball', 'Bhagat', 'Biography', 'Brief', 'Business', 'Camus', 'Cervantes', 'Christie', 'Classics', 'Comics', 'Cook', 'Cricket', 'Cycling', 'Desai', 'Design', 'Development', 'Digital Marketing', 'Drama', 'Drawing', 'Dumas', 'Education', 'Everything', 'Fantasy', 'Film', 'Finance', 'First', 'Fitness', 'Football', 'Future', 'Games', 'Gandhi', 'Homer', 'Horror', 'Hugo', 'Ibsen', 'Journey', 'Kafka', 'King', 'Lahiri', 'Larsson', 'Learn', 'Literary Fiction', 'Make', 'Manage', 'Marquez', 'Money', 'Mystery', 'Negotiate', 'Painting', 'Philosophy', 'Photography', 'Poetry', 'Production', 'Programming', 'React', 'Redux', 'River', 'Robotics', 'Rowling', 'Satire', 'Science Fiction', 'Shakespeare', 'Singh', 'Swimming', 'Tale', 'Thrun', 'Time', 'Tolstoy', 'Travel', 'Ultimate', 'Virtual Reality', 'Web Development', 'iOS']
 
+let searchValue = false
+
 class SearchBooks extends React.Component {
     state = {
         query: '',
-        bookList: [],
+        bookList: []
     }
 
     componentWillUpdate() {
-        searchTerms.map ((term) => {
-            if (this.state.query === term){
-                BooksAPI.search(this.state.query).then((bookList) => {
-                    this.setState({bookList})
-                })            
-            }
+        searchValue = searchTerms.some((elem) =>{
+            return elem === this.state.query
         })
+
+        if(searchValue){
+            BooksAPI.search(this.state.query).then((bookList) => {
+                this.setState({bookList})
+            })
+        }
     }
 
     updateQuery = (query) => {
-        // not based off previous state so can just pass an object
         this.setState({query: query.trim()})
     }
 
