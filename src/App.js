@@ -6,7 +6,10 @@ import BookShelf from './bookShelf';
 import SearchBooks from './searchBar'
 import * as BooksAPI from './BooksAPI';
 
-console.log(BooksAPI);
+// TODO: fixup ReadME
+// TODO: Regexp for searchBar
+// TODO: BookShelfChanger -> remove state, move component will update to App and upDateSheflChanger
+// Returns a Promise which resolves to a JSON object containing the response data of the POST request
 
 class BooksApp extends React.Component {
     state = {

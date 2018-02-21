@@ -1,7 +1,6 @@
 import React from 'react';
 // import React, { Component } from 'react';
-import BookShelfChanger from './bookShelfChanger';
-
+import BookShelfChanger from './bookShelfChanger'
 
 let varBookGrid = (propBookList, propShelfID) => {
     return propBookList.map((book) => {
@@ -16,7 +15,7 @@ let varBookGrid = (propBookList, propShelfID) => {
                                 backgroundImage: `url(${book.imageLinks.smallThumbnail})`
                             }}>
                             </div>
-                            <BookShelfChanger />
+                            <BookShelfChanger book={book}/>
                         </div>
                         <div className="book-title">{book.title}</div>
                         <div className="book-authors">{book.authors}</div>

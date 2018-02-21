@@ -59,7 +59,7 @@ class SearchBooks extends React.Component {
                                                     backgroundImage: `url(${book.imageLinks.smallThumbnail})`
                                                 }}>
                                                 </div>
-                                                <BookShelfChanger />
+                                                <BookShelfChanger book={book}/>
                                             </div>
                                             <div className="book-title">{book.title}</div>
                                             <div className="book-authors">{book.authors}</div>
