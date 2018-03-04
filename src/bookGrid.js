@@ -15,7 +15,7 @@ let varBookGrid = (propBookList, propShelfID) => {
                                 backgroundImage: `url(${book.imageLinks.smallThumbnail})`
                             }}>
                             </div>
-                            <BookShelfChanger book={book}/>
+                            <BookShelfChanger book={book} />
                         </div>
                         <div className="book-title">{book.title}</div>
                         <div className="book-authors">{book.authors}</div>

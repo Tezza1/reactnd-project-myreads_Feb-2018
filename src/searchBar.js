@@ -15,23 +15,23 @@ class SearchBooks extends React.Component {
         bookList: []
     }
 
-    componentWillUpdate() {
-        searchValue = searchTerms.some((elem) =>{
-            return elem === this.state.query
-        })
-
-        if(searchValue){
-            BooksAPI.search(this.state.query).then((bookList) => {
-                this.setState({bookList})
-            })
-        }
-    }
-
     updateQuery = (query) => {
         this.setState({query: query.trim()})
     }
 
     render () {
+        if (this.state.query) {
+            searchValue = searchTerms.some((elem) =>{
+                return elem === this.state.query
+            })
+
+            if(searchValue){
+                BooksAPI.search(this.state.query).then((bookList) => {
+                    this.setState({bookList})
+                })
+            }
+        }
+
         return (
             <div className="search-books">
                 <div className="search-books-bar">
@@ -59,7 +59,7 @@ class SearchBooks extends React.Component {
                                                     backgroundImage: `url(${book.imageLinks.smallThumbnail})`
                                                 }}>
                                                 </div>
-                                                <BookShelfChanger book={book}/>
+                                                <BookShelfChanger book={book} onChange={this.changeBookShelf}/>
                                             </div>
                                             <div className="book-title">{book.title}</div>
                                             <div className="book-authors">{book.authors}</div>

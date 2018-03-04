@@ -21,10 +21,22 @@ let varBookStatus = (bookStatusArray) => {
 };
 
 class BookShelfChanger extends React.Component {
+    state = {
+        shelfToChange: ''
+    }
+
+    componentWillUpdate() {
+        BooksAPI.update(this.props.book, this.state.shelfToChange)
+    }
+
+    updateShelfChange = (shelfToChange) => {
+        this.setState({shelfToChange: shelfToChange})
+    }
+    
     render() {
         return (
             <div className="book-shelf-changer">
-                <select onChange={(e) => console.log(`${this.props.book.id}, ${e.target.value}`)}>
+                <select onChange={(e) => this.updateShelfChange(e.target.value)}>
                     {varBookStatus(bookStatus)};
                 </select>
             </div>

@@ -17,7 +17,7 @@ class BookShelf extends React.Component {
                         <div className="bookshelf" key={category.key}>
                             <h2 className="bookshelf-title">{category.title}</h2>
                             <div className="bookshelf-books">
-                                <BookGrid id={category.id} bookList={this.props.bookList} />
+                                <BookGrid id={category.id} bookList={this.props.bookList} onChangeBookShelf={this.props.changeBookShelf}/>
                             </div>
                         </div>
                     );
