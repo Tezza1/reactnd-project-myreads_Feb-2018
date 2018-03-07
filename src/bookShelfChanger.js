@@ -1,5 +1,5 @@
 import React from 'react';
-import * as BooksAPI from './BooksAPI';
+// import * as BooksAPI from './BooksAPI';
 
 const bookStatus = [
     { status: "none-disable", title: "Move to...", key: 1 },
@@ -12,10 +12,10 @@ const bookStatus = [
 let varBookStatus = (bookStatusArray) => {
     return bookStatus.map ((book) => {
         if (book.status === "none-disable"){
-            return <option value={book.status} disabled="disabled" key={book.key}>{book.title}</option>
+            return <option value={book.status} disabled="disabled" key={book.key}>{book.title}</option>;
         }
         else {
-            return <option value={book.status} key={book.key}>{book.title}</option>
+            return <option value={book.status} key={book.key}>{book.title}</option>;
         }
     });
 };
@@ -30,6 +30,6 @@ class BookShelfChanger extends React.Component {
             </div>
         );
     }
-};
+}
 
 export default BookShelfChanger;

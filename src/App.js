@@ -1,9 +1,9 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
-import {Route} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import './App.css';
 import BookShelf from './bookShelf';
-import SearchBooks from './searchBar'
+import SearchBooks from './searchBar';
 import * as BooksAPI from './BooksAPI';
 
 class BooksApp extends React.Component {
@@ -13,8 +13,8 @@ class BooksApp extends React.Component {
 
     componentDidMount() {
         BooksAPI.getAll().then((bookList) => {
-            this.setState({bookList})
-        })
+            this.setState({bookList});
+        });
     }
 
     /*
@@ -22,18 +22,6 @@ class BooksApp extends React.Component {
         2- set the API to update the book
         3- add the new state to the old stat
     */
-    /*
-    componentWillUpdate() {
-        BooksAPI.update(this.props.book, this.state.shelfToChange)
-    }
-    */
-    changeBookShelf = (book) => {
-        // this.setState((state) => ({
-        //     // bookList:
-        // }))
-        this.state.bookList
-        console.log(book)
-    }
 
     render() {
         return (
@@ -56,8 +44,8 @@ class BooksApp extends React.Component {
                     <SearchBooks bookList={this.state.bookList}/>
                 )}/>
             </div>
-        )
+        );
     }
-};
+}
 
 export default BooksApp;

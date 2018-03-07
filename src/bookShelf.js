@@ -1,5 +1,5 @@
 import React from 'react';
-import BookGrid from './bookGrid'
+import BookGrid from './bookGrid';
 
 class BookShelf extends React.Component {
     render() {
@@ -25,6 +25,6 @@ class BookShelf extends React.Component {
             </div>
         );
     }
-};
+}
 
 export default BookShelf;

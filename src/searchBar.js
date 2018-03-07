@@ -1,13 +1,13 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
-import * as BooksAPI from './BooksAPI'
-import BookShelfChanger from './bookShelfChanger'
+import {Link} from 'react-router-dom';
+import * as BooksAPI from './BooksAPI';
+import BookShelfChanger from './bookShelfChanger';
 // import escapeRegExp from 'escape-string-regexp'
 // import sortBy from 'sort-by'
 
-const searchTerms = ['Android', 'Art', 'Artificial Intelligence', 'Astronomy', 'Austen', 'Baseball', 'Basketball', 'Bhagat', 'Biography', 'Brief', 'Business', 'Camus', 'Cervantes', 'Christie', 'Classics', 'Comics', 'Cook', 'Cricket', 'Cycling', 'Desai', 'Design', 'Development', 'Digital Marketing', 'Drama', 'Drawing', 'Dumas', 'Education', 'Everything', 'Fantasy', 'Film', 'Finance', 'First', 'Fitness', 'Football', 'Future', 'Games', 'Gandhi', 'Homer', 'Horror', 'Hugo', 'Ibsen', 'Journey', 'Kafka', 'King', 'Lahiri', 'Larsson', 'Learn', 'Literary Fiction', 'Make', 'Manage', 'Marquez', 'Money', 'Mystery', 'Negotiate', 'Painting', 'Philosophy', 'Photography', 'Poetry', 'Production', 'Programming', 'React', 'Redux', 'River', 'Robotics', 'Rowling', 'Satire', 'Science Fiction', 'Shakespeare', 'Singh', 'Swimming', 'Tale', 'Thrun', 'Time', 'Tolstoy', 'Travel', 'Ultimate', 'Virtual Reality', 'Web Development', 'iOS']
+const searchTerms = ['Android', 'Art', 'Artificial Intelligence', 'Astronomy', 'Austen', 'Baseball', 'Basketball', 'Bhagat', 'Biography', 'Brief', 'Business', 'Camus', 'Cervantes', 'Christie', 'Classics', 'Comics', 'Cook', 'Cricket', 'Cycling', 'Desai', 'Design', 'Development', 'Digital Marketing', 'Drama', 'Drawing', 'Dumas', 'Education', 'Everything', 'Fantasy', 'Film', 'Finance', 'First', 'Fitness', 'Football', 'Future', 'Games', 'Gandhi', 'Homer', 'Horror', 'Hugo', 'Ibsen', 'Journey', 'Kafka', 'King', 'Lahiri', 'Larsson', 'Learn', 'Literary Fiction', 'Make', 'Manage', 'Marquez', 'Money', 'Mystery', 'Negotiate', 'Painting', 'Philosophy', 'Photography', 'Poetry', 'Production', 'Programming', 'React', 'Redux', 'River', 'Robotics', 'Rowling', 'Satire', 'Science Fiction', 'Shakespeare', 'Singh', 'Swimming', 'Tale', 'Thrun', 'Time', 'Tolstoy', 'Travel', 'Ultimate', 'Virtual Reality', 'Web Development', 'iOS'];
 
-let searchValue = false
+let searchValue = false;
 
 class SearchBooks extends React.Component {
     state = {
@@ -16,19 +16,19 @@ class SearchBooks extends React.Component {
     }
 
     updateQuery = (query) => {
-        this.setState({query: query.trim()})
+        this.setState({query: query.trim()});
     }
 
     render () {
         if (this.state.query) {
             searchValue = searchTerms.some((elem) =>{
-                return elem === this.state.query
-            })
+                return (elem || elem) === this.state.query;
+            });
 
             if(searchValue){
                 BooksAPI.search(this.state.query).then((bookList) => {
-                    this.setState({bookList})
-                })
+                    this.setState({bookList});
+                });
             }
         }
 
@@ -75,4 +75,4 @@ class SearchBooks extends React.Component {
     }
 }
 
-export default SearchBooks
+export default SearchBooks;
