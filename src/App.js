@@ -31,7 +31,7 @@ class BooksApp extends React.Component {
                         <div className="list-books-title">
                             <h1>MyReads</h1>
                         </div>
-                        <BookShelf bookList={this.state.bookList} onChangeBookShelf={this.changeBookShelf}/>
+                        <BookShelf bookList={this.state.bookList}/>
                         <div className="open-search">
                             <Link
                                 to="/search"
