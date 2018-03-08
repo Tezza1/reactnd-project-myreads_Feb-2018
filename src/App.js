@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import {Route} from 'react-router-dom';
 import './App.css';
@@ -6,7 +6,7 @@ import BookShelf from './bookShelf';
 import SearchBooks from './searchBar';
 import * as BooksAPI from './BooksAPI';
 
-class BooksApp extends React.Component {
+class BooksApp extends Component {
     state = {
         bookList: [],
     }
@@ -31,7 +31,7 @@ class BooksApp extends React.Component {
                         <div className="list-books-title">
                             <h1>MyReads</h1>
                         </div>
-                        <BookShelf bookList={this.state.bookList}/>
+                        <BookShelf bookList={this.state.bookList} />
                         <div className="open-search">
                             <Link
                                 to="/search"
