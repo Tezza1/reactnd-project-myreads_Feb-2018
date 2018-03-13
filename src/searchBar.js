@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import * as BooksAPI from './BooksAPI';
 import BookShelfChanger from './bookShelfChanger';
 
-
 class SearchBooks extends Component {
     state = {
         query: '',
